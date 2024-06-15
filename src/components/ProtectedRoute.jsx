@@ -6,8 +6,15 @@ import { useState } from "react";
 
 function ProtectedRoute({children}) {
     const [isAuthorized, setIsAuthorized] = useState(null)
-    const refreshToken = async () => {
 
+    const refreshToken = async () => {
+        const refreshToken = localStorage.getItem(REFRESH_TOKEN)
+        try {
+            const res = await api.post("/api/token/refresh/", { refresh: refreshToken })
+        }catch (error) {
+            console.log(error)
+            setIsAuthorized(false)
+        }
     }
 
     const auth = async () =>{
