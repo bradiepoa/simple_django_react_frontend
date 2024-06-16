@@ -21,19 +21,20 @@ function App() {
   return (
     <BrowserRouter>
     <Routes>
+      {/* protected route */}
       <Route path="/" element={
         <protectedRoute>
           <Home />
         </protectedRoute>
       } 
       />
+      {/* not protect routes */}
       <Route path="/login" element={<Login /> } />
+      <Route path="/logout" element={<Logout /> } />
       <Route path="/register" element={<RegisterAndLogout /> } />
       <Route path="*" element={<NotFound /> } />
     </Routes>
     </BrowserRouter>
-     
-   
   )
 }
 export default App
