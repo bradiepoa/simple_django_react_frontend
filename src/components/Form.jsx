@@ -2,7 +2,7 @@ import { useState } from "react"
 import api from "../api"
 import { useNavigate } from "react-router-dom"
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants"
-import "..styles/Form.css"
+import "../styles/Form.css"
 
 function Form({route, method}) {
     const [username, setUsername] = useState("")
@@ -39,7 +39,7 @@ function Form({route, method}) {
             className="form-input"
             type="text"
             value={username}
-            onChange={(e) => setUsername(e,target.value)} 
+            onChange={(e) => setUsername(e.target.value)} 
             placeholder="Username"        
         />
 
@@ -47,10 +47,11 @@ function Form({route, method}) {
             className="form-input"
             type="password"
             value={password}
-            onChange={(e) => setPassword(e,target.value)} 
+            onChange={(e) => setPassword(e.target.value)} 
             placeholder="Pasword"        
         />
         <button className="form-button" type="submit">{name}</button>
 
     </form>
 }
+export default Form
